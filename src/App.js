@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import { Navigate, Route, Routes } from "react-router";
+import Styles from "./App.module.css";
+import { Events } from "./Events";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={Styles.wrapper}>
+      <div className={Styles.headings}>
+        <h1>EVENTS & NEWS</h1>
+        <h3>Learn, Compete & Grow</h3>
+      </div>
+      <Routes>
+        <Route path="/" element={<Navigate to="/events?event_category=ALL_EVENTS&event_sub_category=Upcoming&page=1" />} />
+        <Route path="/events" element={<Events />} />
+      </Routes>
     </div>
   );
 }
